@@ -25,9 +25,8 @@ def thumbnailer():
     image = base64.b64decode(data)
     image = Image.open(io.BytesIO(image))
 
-    (width, heigth) = image.size
-
-    if width < size or heigth < size:
+    (width, height) = image.size
+    if width < size or height < size:
         return jsonify({
             'error': 'Image smaller than requested thumbnail size'
         }), 400
