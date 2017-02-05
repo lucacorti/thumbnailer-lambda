@@ -1,0 +1,6 @@
+{
+    "dev": {
+        "app_function": "thumbnailer.app", 
+        "s3_bucket": "zappa-hwv1xbl3g"
+    }
+}
