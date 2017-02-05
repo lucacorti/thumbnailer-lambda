@@ -4,10 +4,6 @@ from PIL import Image
 
 app = Flask(__name__)
 
-@app.route('/')
-def index():
-    return "Hello, world!", 200
-
 @app.route('/thumbnailer', methods=['POST'])
 def thumbnailer():
     size = request.json.get('size')
