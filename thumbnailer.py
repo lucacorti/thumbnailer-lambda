@@ -18,8 +18,13 @@ def thumbnailer():
             'error': 'Missing or invalid input image data (String)'
         }), 400
 
-    image = base64.b64decode(data)
-    image = Image.open(io.BytesIO(image))
+    try:
+        image = base64.b64decode(data)
+        image = Image.open(io.BytesIO(image))
+    except (TypeError, IOError) as e:
+        return jsonify({
+            'error': 'Uploaded file is corrupt or invalid'
+        }), 400
 
     (width, height) = image.size
     if width < size or height < size:
