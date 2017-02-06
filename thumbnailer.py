@@ -9,7 +9,7 @@ def thumbnailer():
     size = request.json.get('size')
     if not size:
         return jsonify({
-            'error': 'Missing or invalid input image size (Int)'
+            'error': 'Missing or invalid thumbnail size (Int)'
         }), 400
 
     data = request.json.get('data')
